@@ -1,8 +1,8 @@
 pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
-import QtQuick.Shapes
 import qs.data
+import qs.bar.components.base
 
 Loader {
     id: loader
@@ -85,24 +85,10 @@ Loader {
                 }
             }
 
-            Shape {
-                preferredRendererType: Shape.CurveRenderer
+            Corner {
                 x: loader.rightSide ? 1 : loader.contentItem.width - 1
-
-                ShapePath {
-                    strokeWidth: 0
-                    fillColor: panel.backgroundColor
-                    
-                    PathAngleArc {
-                        moveToStart: false
-                        centerX: loader.rightSide ? -panel.borderRadius : panel.borderRadius
-                        centerY: panel.borderRadius
-                        radiusX: centerX
-                        radiusY: panel.borderRadius
-                        startAngle: 180
-                        sweepAngle: 90
-                    }
-                }
+                size: panel.borderRadius
+                rightSide: loader.rightSide
             }
 
             Rectangle {

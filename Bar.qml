@@ -2,6 +2,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Layouts
 import qs.bar
+import qs.bar.components.base
 
 Scope {
     id: root
@@ -25,14 +26,16 @@ Scope {
             }
 
             Corner {
-                rightSide: false
+                x: 0
+                y: barWindow.exclusiveZone
+                size: 20
             }
 
             Rectangle {
                 id: bar
                 color: '#111'
                 width: barWindow.width
-                height: 30
+                height: barWindow.exclusiveZone
                 
                 RowLayout {
                     anchors.fill: parent
@@ -48,8 +51,10 @@ Scope {
             }
 
             Corner {
+                x: Screen.width
+                y: barWindow.exclusiveZone
+                size: 20
                 rightSide: true
-                screenSize: barWindow.screen.width
             }
         }
     }
