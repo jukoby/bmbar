@@ -1,27 +1,15 @@
 import QtQuick
-import Quickshell.Io
+import Quickshell
+import Quickshell.Wayland 
 import qs.bar.components.base
 
 BarButton {
-    text: process.running ? "󰒳" : "󰒲"
-    onLeftClicked: process.running = !process.running
+    text: inhibitor.enabled ? "󰒳" : "󰒲"
+    onLeftClicked: inhibitor.enabled = !inhibitor.enabled
 
-    Process {
-        id: process
-        running: false
-        command: [
-            "systemd-inhibit", 
-            "--who=quickshell",
-            "--why=Inhibiting idle state",
-            "sleep", 
-            "infinity"
-        ]
+    IdleInhibitor {
+        id: inhibitor
+        window: QsWindow.window
+        enabled: false
     }
-    /*
-    text: Inhibitor.enabled ? "󰈉" : "󰈈"
-
-    onLeftClicked: {
-        Inhibitor.enabled = !Inhibitor.enabled
-    }
-    */
 }
