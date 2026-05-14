@@ -4,7 +4,6 @@ import qs.data
 import qs.bar.components.base
 import qs.popups
 
-
 BarButton {
     text: getNotificationIcon()
     function getNotificationIcon() {

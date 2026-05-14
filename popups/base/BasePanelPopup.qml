@@ -57,5 +57,4 @@ PanelWindow {
         anchors.fill: parent
         onPressed: panel.close = true
     }
-
 }

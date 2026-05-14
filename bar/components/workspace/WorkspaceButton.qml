@@ -1,8 +1,5 @@
 import QtQuick
-import QtQuick.Controls
 import Quickshell.Hyprland
-import Quickshell
-
 
 Text {
     id: workspace

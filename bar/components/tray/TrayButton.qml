@@ -3,7 +3,6 @@ import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
 
-
 IconImage {
     id: trayIcon
     required property SystemTrayItem modelData
