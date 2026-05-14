@@ -4,7 +4,7 @@ import qs.data
 import qs.popups.base
 import qs.popups.components.audio
 
-PanelPopup {
+HorizontalPopup {
     id: popup
     rightSide: true
 

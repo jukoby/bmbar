@@ -5,7 +5,7 @@ import qs.data
 import qs.popups.base
 import qs.popups.components.notification
 
-PanelPopup {
+HorizontalPopup {
     id: popup
     rightSide: true
     maskEnabled: showNewNotifs

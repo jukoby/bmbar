@@ -3,9 +3,9 @@ import QtQuick.Layouts
 import qs.popups.base
 import qs.popups.components.power
 
-PanelPopup {
+HorizontalPopup {
     id: popup
-    rightSide: false
+    leftSide: true
 
     contentItem: Item {
         implicitHeight: layout.implicitHeight
