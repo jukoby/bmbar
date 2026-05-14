@@ -1,6 +1,8 @@
 # This is a **b**are **m**inimal bar
 
-![Screenshot](/docs/bar.png)
+![Screenshot](/docs/bar_closed.png)
+---
+![Screenshot with popups opened](/docs/bar_opened.png)
 
 A simple, dependency-light and easy to customize bar based on [Quickshell](https://quickshell.org/).
 
@@ -21,7 +23,7 @@ The goal of this project is to just provide a really minimal bar for [Hyprland](
 
 `git clone https://github.com/jukoby/bmbar.git`
 
-1. Rename the folder or just use a symlink
+2. Rename the folder or just use a symlink
 
 `ln -s location/of/bmbar/ $XDG_CONFIG_HOME/quickshell`
 
