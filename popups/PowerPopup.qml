@@ -33,7 +33,7 @@ HorizontalPopup {
             }
 
             PowerItem {
-                text: ""
+                text: "󰗽"
                 command: ["loginctl", "terminate-session"]
                 bottomPadding: 10
             }
