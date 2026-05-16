@@ -10,10 +10,10 @@ The goal of this project is to just provide a really minimal bar for [Hyprland](
 
 ## Why use this
 - Minimal: no install scripts, just 3 external dependencies
-- Non-invasive: doesn't change everything in your config
+- Non-invasive: doesn't change anything in your config
 - Customizable: modify QML components as you wish
 
-## Prerequisites
+## Dependencies
 - Hyprland (duh)
 - Quickshell
 - Nerd Font Icons (you can also use others)
