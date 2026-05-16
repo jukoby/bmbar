@@ -9,7 +9,7 @@ A simple, dependency-light and easy to customize bar based on [Quickshell](https
 The goal of this project is to just provide a really minimal bar for [Hyprland](https://hypr.land/).
 
 ## Why use this
-- Minimal: no install scripts, just a few external dependencies
+- Minimal: no install scripts, just 3 external dependencies
 - Non-invasive: doesn't change everything in your config
 - Customizable: modify QML components as you wish
 
@@ -38,7 +38,6 @@ The goal of this project is to just provide a really minimal bar for [Hyprland](
 
 ## TODO
 - Mpris menu
-- Bluetooth menu
 - fix small animation issues
 - basic config file
 - workspace overview
