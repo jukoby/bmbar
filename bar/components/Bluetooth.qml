@@ -1,7 +1,7 @@
 import QtQuick
-import Quickshell
 import qs.data
 import qs.bar.components.base
+import qs.popups
 
 BarButton {
     text: bluetoothIcon()
@@ -19,5 +19,7 @@ BarButton {
         }
     }
 
-    onLeftClicked: Quickshell.execDetached(["blueman-manager"])
+    BluetoothPopup { id: popup }
+
+    onLeftClicked: popup.toggle()
 }
