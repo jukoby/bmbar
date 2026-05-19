@@ -14,8 +14,6 @@ PanelWindow {
         top: HyprlandController.hasFullscreenOnScreen(screen) ? -30 : 0
     }
     
-    mask: loader.maskEnabled ? maskRegion : null
-
     readonly property int borderRadius: 20
     readonly property string backgroundColor: "#111"
     property bool close: false
@@ -25,7 +23,7 @@ PanelWindow {
     readonly property int heightPadding: 10
     readonly property int animationPadding: loader.contentItem.width / 5
 
-    required property int x
+    required property var position
     required property PopupLoader loader
     required property PropertyAnimation animation
 
@@ -39,13 +37,6 @@ PanelWindow {
         animation.start()
     }
 
-    Region {
-        id: maskRegion
-        width: panel.loader.contentItem.width + panel.animationPadding
-        height: panel.realHeight
-        x: panel.x
-    }
-
     anchors {
         top: true
         right: loader.rightSide
@@ -53,8 +44,12 @@ PanelWindow {
     }
 
     // Bar closes when a click is registered outside of it
-    MouseArea {
-        anchors.fill: parent
-        onPressed: panel.close = true
+    TapHandler {
+        acceptedButtons: Qt.LeftButton
+        onTapped: (event) => {
+            panel.close = (event.position.x < panel.position.x 
+                || event.position.x > panel.position.x + panel.loader.contentItem.width) || 
+                (event.position.y > panel.realHeight)
+        }
     }
 }

@@ -1,17 +1,19 @@
 pragma ComponentBehavior: Bound
 import QtQuick
+import Quickshell
 import qs.bar.components.base
 
 PopupLoader {
     id: loader
+    property Region mask
 
     sourceComponent: BasePanelPopup {
         id: panel
         loader: loader
         animation: animation
-        x: position.x
+        mask: loader.mask
 
-        property var position: loader.rightSide ? {
+        position: loader.rightSide ? {
             x: Screen.width - backgroundRect.width + panel.animationPadding,
             hiddenX: Screen.width + backgroundRect.width - panel.animationPadding,
             cornerX: 1,
@@ -49,6 +51,7 @@ PopupLoader {
                 id: backgroundRect
                 color: panel.backgroundColor
                 x: panel.position.bgRectX
+                children: [loader.contentItem]
                 implicitWidth: loader.contentItem.width + panel.animationPadding
                 implicitHeight: panel.realHeight
                 Behavior on implicitHeight { 
@@ -59,12 +62,6 @@ PopupLoader {
                 }
                 bottomLeftRadius: loader.rightSide ? panel.borderRadius : 0
                 bottomRightRadius: loader.leftSide ? panel.borderRadius : 0
-            }
-            
-            MouseArea {
-                children: [loader.contentItem]
-                width: backgroundRect.width
-                height: backgroundRect.height
             }
         }
     }

@@ -1,4 +1,5 @@
 pragma ComponentBehavior: Bound
+import Quickshell
 import QtQuick
 import QtQuick.Controls
 import qs.data
@@ -8,11 +9,19 @@ import qs.popups.components.notification
 HorizontalPopup {
     id: popup
     rightSide: true
-    maskEnabled: showNewNotifs
     disableHeightAnimation: true
 
     property int newNotifCount: 0
     property bool showNewNotifs: false
+
+    mask: showNewNotifs ? maskRegion: null
+
+    Region {
+        id: maskRegion
+        width: popup.contentItem.width + popup.sourceComponent.animationPadding
+        height: popup.sourceComponent.realHeight
+        x: popup.sourceComponent.position.x
+    }
 
     contentItem: Item {
         id: outerItem
