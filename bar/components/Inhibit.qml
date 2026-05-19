@@ -1,15 +1,8 @@
 import QtQuick
-import Quickshell
-import Quickshell.Wayland 
 import qs.bar.components.base
+import qs.data
 
 BarButton {
-    text: inhibitor.enabled ? "󰒳" : "󰒲"
-    onLeftClicked: inhibitor.enabled = !inhibitor.enabled
-
-    IdleInhibitor {
-        id: inhibitor
-        window: QsWindow.window
-        enabled: false
-    }
+    text: InhibitController.enabled ? "󰒳" : "󰒲"
+    onLeftClicked: InhibitController.enabled = !InhibitController.enabled
 }
