@@ -1,39 +1,47 @@
 pragma Singleton
 pragma ComponentBehavior: Bound
 import Quickshell
+import Quickshell.Io
 import Quickshell.Services.Mpris
 import QtQuick
 
 Singleton {
     id: root
-    property var players: Mpris.players;
-    property MprisPlayer trackedPlayer: null
-	property MprisPlayer activePlayer: trackedPlayer ?? Mpris.players.values[0] ?? null;
 
-    Instantiator {
-		model: root.players;
+    property MprisPlayer activePlayer: null
 
-		Connections {
-			required property MprisPlayer modelData;
-			target: modelData;
+	signal playerChanged(string title)
 
-			function onPlaybackStateChanged() {
-				if (root.trackedPlayer !== modelData) root.trackedPlayer = modelData;
-			}
+	onPlayerChanged: (title) => {
+		const trimmedTitle = title.trim()
+		if (trimmedTitle !== activePlayer?.trackTitle) {
+			root.activePlayer = Mpris.players.values.find(
+				p => p.trackTitle.trim() === title.trim()
+			)
 		}
+    }
+
+	Process {
+        id: getPlayer
+        running: false
+        command: ["playerctl", "metadata", "xesam:title"]
+        stdout: StdioCollector {
+            onStreamFinished: root.playerChanged(text)
+        }
+    }
+
+	Timer {
+		running: true
+		repeat: true
+		interval: 500
+
+		onTriggered: getPlayer.running = true
 	}
 
-	function getTrack() {
-		return root.activePlayer?.trackTitle ? 
-			`${root.activePlayer.trackTitle} - ${root.activePlayer.trackArtist}` :
-			""
-	}
+	readonly property string info: activePlayer?.trackTitle ?
+		`${activePlayer?.trackTitle} - ${activePlayer?.trackArtist}` :
+		""
 
-	function isPlaying() {
-		return root.activePlayer?.isPlaying
-	}
-
-	function playerExists() {
-		return !(root.activePlayer === null)
-	}
+	readonly property bool isPlaying: activePlayer?.isPlaying
+	readonly property bool playerExists: !(activePlayer === null)
 }
