@@ -7,10 +7,9 @@ import qs.popups.base
 import qs.popups.components.bluetooth
 import qs.popups.components.base
 
-
-HorizontalPopup {
+PanelPopup {
     id: popup
-    rightSide: true
+    side: Side.RIGHT
 
     contentItem: Item {
         id: root

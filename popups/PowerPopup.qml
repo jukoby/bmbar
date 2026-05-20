@@ -1,11 +1,12 @@
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import qs.popups.base
 import qs.popups.components.power
 
-HorizontalPopup {
+PanelPopup {
     id: popup
-    leftSide: true
+    side: Side.LEFT
 
     contentItem: Item {
         implicitHeight: layout.implicitHeight

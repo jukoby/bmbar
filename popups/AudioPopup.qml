@@ -1,12 +1,13 @@
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import qs.data
 import qs.popups.base
 import qs.popups.components.audio
 
-HorizontalPopup {
+PanelPopup {
     id: popup
-    rightSide: true
+    side: Side.RIGHT
 
     contentItem: Item {
         implicitHeight: layout.implicitHeight + 10

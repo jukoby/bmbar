@@ -6,10 +6,9 @@ import qs.data
 import qs.popups.base
 import qs.popups.components.notification
 
-HorizontalPopup {
+PanelPopup {
     id: popup
-    rightSide: true
-    disableHeightAnimation: true
+    side: Side.RIGHT
 
     property int newNotifCount: 0
     property bool showNewNotifs: false
@@ -18,9 +17,9 @@ HorizontalPopup {
 
     Region {
         id: maskRegion
-        width: popup.contentItem.width + popup.sourceComponent.animationPadding
-        height: popup.sourceComponent.realHeight
-        x: popup.sourceComponent.position.x
+        width: popup.contentItem.width
+        height: popup.contentItem.height + 10
+        x: Screen.width - popup.contentItem.width + 20
     }
 
     contentItem: Item {
@@ -28,14 +27,15 @@ HorizontalPopup {
         height: popup.showNewNotifs ? 
             popup.newNotifCount * (notificationHeight + notificationSpacing) :
             childrenRect.height
+        width: 350
+        clip: true
+
         Behavior on height {
             enabled: popup.showNewNotifs
             NumberAnimation {
                 duration: 150
             }
         }
-        width: 350
-        clip: true
 
         property int notificationHeight: 85
         property int notificationSpacing: 10
