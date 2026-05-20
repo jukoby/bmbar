@@ -15,12 +15,18 @@ Shape {
         
         PathAngleArc {
             moveToStart: false
-            centerX: shape.size * (shape.rightSide ? -1 : 1)
+            centerX: shape.size
             centerY: shape.size
-            radiusX: shape.size * (shape.rightSide ? -1 : 1)
+            radiusX: shape.size
             radiusY: shape.size
             startAngle: 180
             sweepAngle: 90
         }
+    }
+
+    transform: Rotation {
+        origin.x: size * 0.5
+        origin.y: size * 0.5
+        angle: rightSide ? 90 : 0
     }
 }
