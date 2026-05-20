@@ -17,6 +17,7 @@ The goal of this project is to just provide a really minimal bar for [Hyprland](
 - Hyprland (duh)
 - Quickshell
 - Nerd Font Icons (you can also use others)
+- playerctl
 
 ## (really) Quick start
 1. Clone the repo 
@@ -32,12 +33,12 @@ The goal of this project is to just provide a really minimal bar for [Hyprland](
 - fully functional system tray
 - audio menu to switch devices and  
 - power menu (shutdown, reboot, sleep, logout)
+- media menu working with playerctl for better reliability
 - toggle buttons: hyprsunset (night light), sleep inhibitor
 - color picker
 - notification daeman showing incoming notifications
 
 ## TODO
-- Mpris menu
 - fix small animation issues
 - basic config file
 - workspace overview
