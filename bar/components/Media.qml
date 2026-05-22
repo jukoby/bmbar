@@ -18,6 +18,7 @@ RowLayout {
         color: "white"
         visible: MprisController.playerExists
         elide: Text.ElideRight
+        // TODO: fade Behavior
     }
 
     // wrap in item to fix text wobbling on toggle
@@ -28,7 +29,7 @@ RowLayout {
 
     TapHandler {
         acceptedButtons: Qt.LeftButton
-        onTapped: popup.toggle()
+        onTapped: {if (MprisController.activePlayer) popup.toggle()}
         margin: 5
     }
 }

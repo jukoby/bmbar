@@ -9,6 +9,9 @@ Singleton {
     id: root
 
     property MprisPlayer activePlayer: null
+	property var otherPlayers: Mpris.players.values.filter(
+		p => p.trackTitle != "" && p.trackTitle != activePlayer.trackTitle
+	)
 
 	signal playerChanged(string title)
 
