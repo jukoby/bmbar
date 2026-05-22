@@ -28,7 +28,7 @@ Scope {
             Corner {
                 y: barWindow.exclusiveZone
                 size: 20
-                leftSide: true
+                direction: Direction.SE
             }
 
             Rectangle {
@@ -54,7 +54,7 @@ Scope {
                 x: Screen.width - size
                 y: barWindow.exclusiveZone
                 size: 20
-                rightSide: true
+                direction: Direction.SW
             }
         }
     }

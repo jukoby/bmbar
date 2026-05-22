@@ -4,8 +4,7 @@ import QtQuick.Shapes
 Shape {
     id: shape
     preferredRendererType: Shape.CurveRenderer
-    property bool rightSide: !leftSide
-    property bool leftSide: !rightSide
+    property int direction
     required property int size
 
     ShapePath {
@@ -25,8 +24,8 @@ Shape {
     }
 
     transform: Rotation {
-        origin.x: size * 0.5
-        origin.y: size * 0.5
-        angle: rightSide ? 90 : 0
+        origin.x: shape.size * 0.5
+        origin.y: shape.size * 0.5
+        angle: shape.direction == Direction.SW ? 90 : 0
     }
 }

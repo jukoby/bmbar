@@ -59,7 +59,7 @@ Loader {
                 id: leftCorner
                 size: loader.borderRadius
                 visible: loader.side !== Side.LEFT
-                rightSide: true
+                direction: Direction.SW
             }
 
             Rectangle {
@@ -88,7 +88,7 @@ Loader {
                 id: rightCorner
                 size: loader.borderRadius
                 visible: loader.side !== Side.RIGHT
-                leftSide: true
+                direction: Direction.SE
             }
 
             
