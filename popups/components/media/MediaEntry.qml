@@ -1,6 +1,7 @@
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls
 import Quickshell.Widgets
 import Quickshell.Services.Mpris
 
@@ -11,10 +12,18 @@ RowLayout {
     required property MprisPlayer player
     property int imageSize: 100
 
+    NumberAnimation on scale {
+        from: 0
+        to: 1
+        duration: 150
+        running: root.visible
+    }
+
     Item {
         Layout.preferredWidth: root.imageSize
         Layout.preferredHeight: root.imageSize
         Layout.leftMargin: 10
+        visible: image.status != Image.Null
 
         ClippingRectangle {
             anchors.centerIn: parent
@@ -42,12 +51,13 @@ RowLayout {
     ColumnLayout {
         id: info
         spacing: 1
-        Layout.preferredWidth: 310
+        Layout.minimumWidth: 310
+        Layout.fillWidth: true
         Layout.leftMargin: 10
         Layout.rightMargin: Layout.leftMargin
 
         Text {
-            Layout.preferredWidth: info.width
+            Layout.fillWidth: true
             text: root.player.trackTitle
             color: "white"
             elide: Text.ElideRight
@@ -55,17 +65,86 @@ RowLayout {
         }
 
         Text {
-            Layout.preferredWidth: info.width
+            Layout.fillWidth: true
             text: root.player.trackArtist
             color: "white"
             elide: Text.ElideRight
         }
 
         Text {
-            Layout.preferredWidth: info.width
+            Layout.fillWidth: true
             text: root.player.trackAlbum ? root.player.trackAlbum : root.player.desktopEntry
             color: "white"
             elide: Text.ElideRight
+        }
+
+        ProgressBar {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 5
+            Layout.topMargin: 5
+            from: 0
+            to: root.player.length
+            value: root.player.position
+        }
+
+        Timer {
+            running: root.player.playbackState == MprisPlaybackState.Playing
+            interval: 1000
+            repeat: true
+            onTriggered: root.player.positionChanged()
+        }
+
+        RowLayout {
+            Layout.preferredWidth: info.width
+
+            Text {
+                text: {new Date(root.player.position * 1000).toISOString().slice(14, 19)}
+                color: "white"
+            }
+
+            RowLayout {
+                Layout.alignment: Qt.AlignHCenter
+                Text {
+                    text: ""
+                    color: "white"
+                    font.pointSize: 15
+
+                    TapHandler {
+                        acceptedButtons: Qt.LeftButton
+                        onTapped: root.player.previous()
+                    }
+                }
+
+                Text {
+                    Layout.preferredWidth: 25
+                    horizontalAlignment: Text.AlignHCenter
+                    text: root.player.isPlaying ? "" : ""
+                    color: "white"
+                    font.pointSize: 15
+
+                    TapHandler {
+                        acceptedButtons: Qt.LeftButton
+                        onTapped: root.player.togglePlaying()
+                    }
+                }
+
+                Text {
+                    text: ""
+                    color: "white"
+                    font.pointSize: 15
+
+                    TapHandler {
+                        acceptedButtons: Qt.LeftButton
+                        onTapped: root.player.next()
+                    }
+                }
+            }
+
+            Text {
+                Layout.alignment: Qt.AlignRight
+                text: {new Date(root.player.length * 1000).toISOString().slice(14, 19)}
+                color: "white"
+            }
         }
     }
 }
