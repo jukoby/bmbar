@@ -1,6 +1,7 @@
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Widgets 
 import qs.popups.base
 import qs.popups.components.power
 
@@ -8,13 +9,10 @@ PanelPopup {
     id: popup
     side: Side.LEFT
 
-    contentItem: Item {
-        implicitHeight: layout.implicitHeight
-        implicitWidth: 50
+    contentItem: WrapperItem {
+        implicitWidth: 45
         
         ColumnLayout {
-            id: layout
-            anchors.fill: parent
             spacing: 5
 
             PowerItem {
@@ -36,7 +34,6 @@ PanelPopup {
             PowerItem {
                 text: "󰗽"
                 command: ["loginctl", "terminate-session"]
-                bottomPadding: 10
             }
         }
     }
