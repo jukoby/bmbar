@@ -18,22 +18,21 @@ Loader {
         active ? item.close = true : active = true
     }
 
-    sourceComponent: PanelWindow {
+    sourceComponent: PopupWindow {
         id: panel
         visible: true
         color: "transparent"
-        // Resizing a PanelWindow causes visual artifacts
-        implicitWidth: Screen.width
+        // Resizing a Window causes visual artifacts
+        implicitWidth: QsWindow.window.width // qmllint disable missing-property
         implicitHeight: Screen.height
         mask: loader.mask
 
-        margins { // qmllint disable unresolved-type
-            top: HyprlandController.hasFullscreenOnScreen(screen) ? -30 : 0
-        }
 
-        anchors.top: true
-        anchors.left: loader.side === Side.LEFT
-        anchors.right: loader.side !== Side.LEFT
+        anchor {
+            window: QsWindow.window
+            rect.y: HyprlandController.hasFullscreenOnScreen(screen) ? 0 : 30
+            adjustment: PopupAdjustment.None // qmllint disable missing-type
+        }
 
         property bool close: false
         property int animationPadding: loader.contentItem.width * 0.2
@@ -51,9 +50,10 @@ Loader {
         }
 
         Row {
-            anchors.right: loader.side === Side.RIGHT ? parent.right : undefined
             anchors.horizontalCenter: loader.side === Side.CENTER ? parent.horizontalCenter : undefined
-            spacing: -1
+            anchors.left: loader.side === Side.LEFT ? parent.left : undefined // qmllint disable Quick.anchor-combinations
+            anchors.right: loader.side === Side.RIGHT ? parent.right : undefined
+            spacing: -0.5
 
             Corner {
                 id: leftCorner
