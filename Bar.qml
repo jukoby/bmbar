@@ -42,11 +42,17 @@ Scope {
                     spacing: 10
                     uniformCellSizes: true
 
-                    Left { Layout.alignment: Qt.AlignLeft }
+                    Left { 
+                        Layout.alignment: Qt.AlignLeft
+                        Layout.leftMargin: 10
+                    }
 
                     Center { Layout.alignment: Qt.AlignCenter }
 
-                    Right { Layout.alignment: Qt.AlignRight }
+                    Right {
+                        Layout.alignment: Qt.AlignRight
+                        Layout.rightMargin: 10
+                    }
                 }
             }
 

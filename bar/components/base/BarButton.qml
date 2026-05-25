@@ -3,10 +3,11 @@ import QtQuick.Layouts
 
 Text {
     id: barButton
-    property bool fixedSize: true
     horizontalAlignment: Text.AlignHCenter
     verticalAlignment: Text.AlignVCenter
     color: "white"
+    property bool fixedSize: true
+
     signal leftClicked()
 
     TapHandler {
@@ -16,8 +17,6 @@ Text {
     }
 
     Component.onCompleted: {
-        if (fixedSize) {
-            Layout.preferredWidth = contentWidth
-        }
+        if (fixedSize) Layout.preferredWidth = contentWidth
     }
 }
