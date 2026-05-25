@@ -13,7 +13,7 @@ Rectangle {
     TapHandler {
         acceptedButtons: Qt.LeftButton
         onTapped: {
-            const primaryAction = container.modelData.actions[0]
+            const primaryAction = container.modelData.actions[0]  // qmllint disable unresolved-type
             if (primaryAction) {
                 primaryAction.invoke()
             }

@@ -27,8 +27,8 @@ IconImage {
 
     QsMenuAnchor {
         id: qsMenu    
-        menu: trayIcon.modelData.menu
+        menu: trayIcon.modelData.menu // qmllint disable unresolved-type
         anchor.item: trayIcon
-        anchor.edges: Edges.Bottom
+        anchor.edges: Edges.Bottom // qmllint disable missing-type
     }
 }

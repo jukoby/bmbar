@@ -5,8 +5,8 @@ import Quickshell
 import Quickshell.Bluetooth
 
 Singleton { 
-    readonly property BluetoothAdapter defaultAdapter: Bluetooth.defaultAdapter
-    readonly property list<BluetoothDevice> devices: defaultAdapter?.devices?.values ?? []
+    readonly property BluetoothAdapter defaultAdapter: Bluetooth.defaultAdapter // qmllint disable unresolved-type
+    readonly property list<BluetoothDevice> devices: defaultAdapter?.devices?.values ?? [] // qmllint disable unresolved-type
     readonly property BluetoothDevice activeDevice: devices.find(d => d.connected) ?? null
     // TODO Battery Info of active Device
 

@@ -20,8 +20,8 @@ BarButton {
     NotificationPopup { id: popup }
 
     QsWindow.onWindowChanged: {
-        if (QsWindow.window?.screen) {
-            NotifController.register(QsWindow.window.screen.name, popup)
+        if (QsWindow.window?.screen) { // qmllint disable missing-property
+            NotifController.register(QsWindow.window.screen.name, popup) // qmllint disable missing-property
         }
     }
 }
