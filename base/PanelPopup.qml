@@ -2,7 +2,7 @@ pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
 import qs.data
-import qs.bar.components.base
+import qs.base
 
 Loader {
     id: loader

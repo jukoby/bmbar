@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Bluetooth
-import qs.popups.components.base
+import qs.base
 
 RowLayout {
     id: device

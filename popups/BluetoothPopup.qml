@@ -3,9 +3,8 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Bluetooth 
-import qs.popups.base
+import qs.base
 import qs.popups.components.bluetooth
-import qs.popups.components.base
 
 PanelPopup {
     id: popup

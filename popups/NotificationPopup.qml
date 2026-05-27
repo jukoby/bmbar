@@ -3,7 +3,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Controls
 import qs.data
-import qs.popups.base
+import qs.base
 import qs.popups.components.notification
 
 PanelPopup {

@@ -2,7 +2,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Widgets 
-import qs.popups.base
+import qs.base
 import qs.popups.components.power
 
 PanelPopup {

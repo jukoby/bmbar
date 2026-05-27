@@ -1,6 +1,6 @@
 import QtQuick
 import Quickshell
-import qs.bar.components.base
+import qs.base
 
 BarButton {
     text: "󰈊"

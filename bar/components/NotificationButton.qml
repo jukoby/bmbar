@@ -1,7 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.data
-import qs.bar.components.base
+import qs.base
 import qs.popups
 
 BarButton {

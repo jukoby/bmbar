@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import qs.data
 import qs.bar.components
-import qs.bar.components.base
+import qs.base
 
 RowLayout {
     spacing: 10

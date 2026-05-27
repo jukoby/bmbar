@@ -1,7 +1,7 @@
 import QtQuick
 import qs.data
 import qs.popups
-import qs.popups.components.base
+import qs.base
 
 IconPercent {
     icons: [" ", " ", ""]

@@ -2,7 +2,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import qs.data
-import qs.popups.base
+import qs.base
 import qs.popups.components.audio
 
 PanelPopup {

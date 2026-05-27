@@ -2,7 +2,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Layouts
 import qs.bar
-import qs.bar.components.base
+import qs.base
 
 Scope {
     id: root
