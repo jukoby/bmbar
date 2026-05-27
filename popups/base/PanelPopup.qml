@@ -26,11 +26,11 @@ Loader {
         implicitWidth: QsWindow.window.width // qmllint disable missing-property
         implicitHeight: Screen.height
         mask: loader.mask
-
+        property int topMargin: HyprlandController.hasFullscreenOnScreen(screen) ? 0 : 30
 
         anchor {
             window: QsWindow.window
-            rect.y: HyprlandController.hasFullscreenOnScreen(screen) ? 0 : 30
+            rect.y: topMargin
             adjustment: PopupAdjustment.None // qmllint disable missing-type
         }
 
@@ -135,7 +135,9 @@ Loader {
         TapHandler {
             acceptedButtons: Qt.LeftButton
             onTapped: (event) => panel.close = !backgroundRect.contains(
-                backgroundRect.mapFromGlobal(event.position.x, event.position.y)
+                backgroundRect.mapFromGlobal(
+                    event.position.x, event.position.y + panel.topMargin
+                )
             )
         }
     }
