@@ -1,18 +1,42 @@
 import QtQuick
+import QtQuick.Layouts
 
-Text {
+RowLayout {
+    id: root
     required property var icons
     required property var steps
     required property double value
     property int multiplier: 1
     property string fallback
+    property bool bold
 
-    text: `${fallback ? fallback : getIcon()} ${(value * multiplier).toFixed(0)} %`
-    color: "white"
+    Text {
+        text: root.fallback ? root.fallback : getIcon()
+        color: "white"
+        font.bold: root.bold
+        Layout.preferredWidth: 18
 
-    function getIcon() {
-        const index = steps.findIndex((step) => value * multiplier < step);
-        return index !== -1 ? icons[index] : icons[icons.length - 1];
+        function getIcon() {
+            const index = root.steps.findIndex(
+                (step) => root.value * root.multiplier < step
+            )
+            return index !== -1 ? 
+                root.icons[index] : root.icons[root.icons.length - 1]
+        }
     }
+    
+    Text {
+        text: `${(root.value * root.multiplier).toFixed(0)}%`
+        color: "white"
+        font.bold: root.bold
+        Layout.preferredWidth: 32
 
+        function getIcon() {
+            const index = root.steps.findIndex(
+                (step) => root.value * root.multiplier < step
+            )
+            return index !== -1 ? 
+                root.icons[index] : root.icons[root.icons.length - 1]
+        }
+    }
 }

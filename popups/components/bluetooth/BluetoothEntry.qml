@@ -29,13 +29,16 @@ RowLayout {
 
     VerticalLine { visible: device.modelData.batteryAvailable }
 
-    Text {
-        text: "󰁾 " + (device.modelData.battery * 100).toFixed(0) + "%"
-        color: "white"
-        font.bold: device.modelData.connected
+    IconPercent {
+        icons: ["󰁻", "󰁾", "󰂁", "󰁹"]
+        steps: [30, 60, 80]
+        multiplier: 100
+        value: device.modelData.battery
+        bold: device.modelData.connected
         visible: device.modelData.batteryAvailable
+        spacing: -5
     }
-
+    
     VerticalLine { visible: device.modelData.bonded || device.modelData.trusted }
 
     Text {
