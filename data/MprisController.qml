@@ -17,7 +17,7 @@ Singleton {
 
 	onPlayerChanged: (title) => {
 		const trimmedTitle = title.trim()
-		if (trimmedTitle !== activePlayer?.trackTitle) {
+		if (trimmedTitle && trimmedTitle !== activePlayer?.trackTitle) {
 			root.activePlayer = Mpris.players.values.find(
 				p => p.trackTitle.trim() === title.trim()
 			)
