@@ -10,7 +10,7 @@ Singleton {
 
     property MprisPlayer activePlayer: null
 	property var otherPlayers: Mpris.players.values.filter(
-		p => p.trackTitle != "" && p.trackTitle != activePlayer.trackTitle
+		p => p.trackTitle != "" && p.trackTitle != activePlayer?.trackTitle
 	)
 
 	signal playerChanged(string title)
@@ -45,6 +45,6 @@ Singleton {
 		`${activePlayer?.trackTitle} - ${activePlayer?.trackArtist}` :
 		""
 
-	readonly property bool isPlaying: activePlayer?.isPlaying
+	readonly property bool isPlaying: activePlayer?.isPlaying ?? false
 	readonly property bool playerExists: !(activePlayer === null)
 }

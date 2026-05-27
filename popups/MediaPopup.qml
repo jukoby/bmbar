@@ -17,7 +17,7 @@ PanelPopup {
         width: 450
         spacing: 0
 
-        MediaEntry { 
+        MediaEntry {
             player: MprisController.activePlayer
         }
 

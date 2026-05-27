@@ -37,7 +37,7 @@ RowLayout {
                 anchors.centerIn: parent
                 width: root.imageSize
                 height: root.imageSize
-                source: root.player.trackArtUrl
+                source: root.player?.trackArtUrl ?? "" // qmllint disable incompatible-type
                 sourceSize.width: 128
                 sourceSize.height: 128
                 fillMode: Image.PreserveAspectFit
@@ -58,7 +58,7 @@ RowLayout {
 
         Text {
             Layout.fillWidth: true
-            text: root.player.trackTitle
+            text: root.player?.trackTitle ?? ""
             color: "white"
             elide: Text.ElideRight
             font.bold: true
@@ -66,14 +66,14 @@ RowLayout {
 
         Text {
             Layout.fillWidth: true
-            text: root.player.trackArtist
+            text: root.player?.trackArtist ?? ""
             color: "white"
             elide: Text.ElideRight
         }
 
         Text {
             Layout.fillWidth: true
-            text: root.player.trackAlbum ? root.player.trackAlbum : root.player.desktopEntry
+            text: root.player?.trackAlbum ? root.player?.trackAlbum : root.player?.desktopEntry ?? ""
             color: "white"
             elide: Text.ElideRight
         }
@@ -83,12 +83,12 @@ RowLayout {
             Layout.preferredHeight: 5
             Layout.topMargin: 5
             from: 0
-            to: root.player.length
-            value: root.player.position
+            to: root.player?.length ?? 0
+            value: root.player?.position ?? 0
         }
 
         Timer {
-            running: root.player.playbackState == MprisPlaybackState.Playing
+            running: root.player?.playbackState == MprisPlaybackState.Playing
             interval: 1000
             repeat: true
             onTriggered: root.player.positionChanged()
@@ -98,7 +98,7 @@ RowLayout {
             Layout.preferredWidth: info.width
 
             Text {
-                text: {new Date(root.player.position * 1000).toISOString().slice(14, 19)}
+                text: {new Date(root.player?.position ?? 0 * 1000).toISOString().slice(14, 19)}
                 color: "white"
             }
 
@@ -118,7 +118,7 @@ RowLayout {
                 Text {
                     Layout.preferredWidth: 25
                     horizontalAlignment: Text.AlignHCenter
-                    text: root.player.isPlaying ? "" : ""
+                    text: root.player?.isPlaying ? "" : ""
                     color: "white"
                     font.pointSize: 15
 
@@ -142,7 +142,7 @@ RowLayout {
 
             Text {
                 Layout.alignment: Qt.AlignRight
-                text: {new Date(root.player.length * 1000).toISOString().slice(14, 19)}
+                text: {new Date(root.player?.length ?? 0 * 1000).toISOString().slice(14, 19)}
                 color: "white"
             }
         }

@@ -63,7 +63,7 @@ PanelPopup {
                     Layout.preferredWidth: 25
                     Layout.preferredHeight: 25
 
-                    running: root.defaultAdapter.discovering
+                    running: root.defaultAdapter?.discovering
                 }
 
             }
@@ -72,7 +72,7 @@ PanelPopup {
                 id: found
                 model: root.devices.filter((device) => !device.connected && !device.paired)
 
-                BluetoothEntry { count: found.count  }
+                BluetoothEntry { count: found.count }
             }
 
         }
