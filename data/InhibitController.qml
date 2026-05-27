@@ -1,14 +1,20 @@
 pragma Singleton
 
 import Quickshell
-import Quickshell.Wayland 
+import Quickshell.Io 
 
 Singleton {
-    property alias enabled: inhibitor.enabled
+    property alias enabled: process.running
 
-    IdleInhibitor {
-        id: inhibitor
-        window: window
-        enabled: enabled
+    Process {
+        id: process
+        running: false
+        command: [
+            "systemd-inhibit", 
+            "--who=quickshell",
+            "--why=Inhibiting idle state",
+            "sleep", 
+            "infinity"
+        ]
     }
 }
