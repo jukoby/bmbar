@@ -64,7 +64,7 @@ PanelPopup {
                     acceptedButtons: Qt.LeftButton
                     onTapped: {
                         for (let i = 0; i < repeater.count; i++) {
-                            repeater.itemAt(i).dismiss()
+                            repeater.itemAt(i).dismiss() // qmllint disable missing-property
                         }
                     }
                 }
