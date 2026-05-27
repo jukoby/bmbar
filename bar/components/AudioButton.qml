@@ -16,5 +16,7 @@ IconPercent {
         onTapped: popup.toggle()
     }
 
-    AudioPopup { id: popup }
+    Item {
+        AudioPopup { id: popup }
+    }
 }
