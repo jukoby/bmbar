@@ -1,29 +1,20 @@
 import QtQuick
 import qs.data
-import qs.bar.components.base
 import qs.popups
+import qs.popups.components.base
 
-BarButton {
-    text: volumeIcon() + " " + volumeString()
-    onLeftClicked: popup.toggle()
-    fixedSize: false
+IconPercent {
+    icons: [" ", " ", ""]
+    steps: [10, 30]
+    value: AudioController.volume
+    multiplier: 100
+    fallback: AudioController.defaultSink?.audio?.muted ?
+        " " : ""
+    
+    TapHandler {
+        acceptedButtons: Qt.LeftButton
+        onTapped: popup.toggle()
+    }
 
     AudioPopup { id: popup }
-
-    function volumeString() {
-        return AudioController.getVolume() + "%"
-    }
-
-    function volumeIcon() {
-        if (AudioController.defaultSink?.audio?.muted) {
-            return " "
-        }
-        const volume = AudioController.getVolume()
-        if (volume < 10) {
-            return " "
-        } else if (volume < 30) {
-            return " "
-        }
-        return ""
-    }
 }

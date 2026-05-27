@@ -22,9 +22,7 @@ Singleton {
     property list<PwNode> inputs: nodes.filter((node) => node.audio && !node.isSink && !node.isStream)
     property list<PwNode> streams: nodes.filter((node) => node.isSink && node.isStream)
 
-    function getVolume() {
-        return defaultSink ? (defaultSink.audio.volume * 100).toFixed(0) : 0
-    }
+    readonly property int volume: defaultSink ? defaultSink.audio.volume : 0
 
     function isDefault(audioType, node) {
         switch (audioType) {
