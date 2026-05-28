@@ -1,23 +1,25 @@
 import QtQuick
 import QtQuick.Layouts
-import qs.data
-import qs.bar.components
 import qs.base
+import qs.data
+import qs.components.audio
+import qs.components.bluetooth
+import qs.components.colorpicker
+import qs.components.nightlight
+import qs.components.notification
 
 RowLayout {
-    spacing: 10
+    spacing: 12
 
-    AudioButton {}
+    ColorPickerButton {}
 
-    Bluetooth {}
+    NightLightButton {}
 
-    ColorPicker {}
+    NotifButton {}
 
-    NightLight {}
+    BluetoothButton {}
 
-    NotificationButton {}
+    AudioButton { Layout.leftMargin: 10 }
 
-    BarButton {
-        text: Time.time
-    }
+    BarButton { text: Time.time }
 }

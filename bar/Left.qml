@@ -1,18 +1,18 @@
 import QtQuick
 import QtQuick.Layouts
-import qs.bar.components
-import qs.bar.components.workspace
-import qs.bar.components.tray
+import qs.components.inhibit
+import qs.components.power
+import qs.components.tray
+import qs.components.workspace
 
 RowLayout {
-    spacing: 10
+    spacing: 12
 
     PowerButton {}
 
-    Inhibit {}
+    InhibitButton {}
 
     Workspaces {}
 
     Tray {}
-
 }

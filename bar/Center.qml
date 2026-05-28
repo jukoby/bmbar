@@ -1,9 +1,9 @@
 import QtQuick
 import QtQuick.Layouts
-import qs.bar.components
+import qs.components.media
 
 RowLayout {
     spacing: 20
     
-    Media {}
+    MediaButton {}
 }

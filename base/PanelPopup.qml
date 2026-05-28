@@ -26,7 +26,7 @@ Loader {
         implicitWidth: QsWindow.window.width // qmllint disable missing-property
         implicitHeight: Screen.height
         mask: loader.mask
-        property int topMargin: HyprlandController.hasFullscreenOnScreen(screen) ? 0 : 30
+        property int topMargin: HyprlandData.hasFullscreenOnScreen(screen) ? 0 : 30
 
         anchor {
             window: QsWindow.window
