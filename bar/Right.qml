@@ -15,9 +15,9 @@ RowLayout {
 
     NightLightButton {}
 
-    NotifButton {}
-
     BluetoothButton {}
+
+    NotifButton {}
 
     AudioButton { Layout.leftMargin: 10 }
 
