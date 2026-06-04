@@ -3,8 +3,8 @@ import QtQuick.Layouts
 
 RowLayout {
     id: root
-    required property var icons
-    required property var steps
+    required property list<string> icons
+    required property list<int> steps
     required property double value
     property int multiplier: 1
     property string fallback
