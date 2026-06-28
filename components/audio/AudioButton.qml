@@ -7,7 +7,7 @@ IconPercent {
     steps: [10, 30]
     value: AudioData.volume
     multiplier: 100
-    fallback: AudioData.defaultSink?.audio?.muted ?
+    alternative: AudioData.defaultSink?.audio?.muted ?
         " " : ""
     
     TapHandler {

@@ -7,11 +7,11 @@ RowLayout {
     required property list<int> steps
     required property double value
     property int multiplier: 1
-    property string fallback
+    property string alternative
     property bool bold
 
     Text {
-        text: root.fallback ? root.fallback : getIcon()
+        text: root.alternative ? root.alternative : getIcon()
         color: "white"
         font.bold: root.bold
         Layout.preferredWidth: 18
