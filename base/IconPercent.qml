@@ -30,13 +30,5 @@ RowLayout {
         color: "white"
         font.bold: root.bold
         Layout.preferredWidth: 32
-
-        function getIcon() {
-            const index = root.steps.findIndex(
-                (step) => root.value * root.multiplier < step
-            )
-            return index !== -1 ? 
-                root.icons[index] : root.icons[root.icons.length - 1]
-        }
     }
 }
