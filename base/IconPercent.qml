@@ -9,12 +9,15 @@ RowLayout {
     property int multiplier: 1
     property string alternative
     property bool bold
+    property int iconWidth: 16
+    property int textWidth: 32
 
     Text {
         text: root.alternative ? root.alternative : getIcon()
         color: "white"
         font.bold: root.bold
-        Layout.preferredWidth: 18
+        horizontalAlignment: Qt.AlignLeft
+        Layout.preferredWidth: root.iconWidth
 
         function getIcon() {
             const index = root.steps.findIndex(
@@ -29,6 +32,8 @@ RowLayout {
         text: `${(root.value * root.multiplier).toFixed(0)}%`
         color: "white"
         font.bold: root.bold
-        Layout.preferredWidth: 32
+        font.pointSize: root.value == 1 ? 10: 11
+        horizontalAlignment: Qt.AlignRight
+        Layout.preferredWidth: root.textWidth
     }
 }
