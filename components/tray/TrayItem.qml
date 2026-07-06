@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Effects
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
@@ -30,5 +31,11 @@ IconImage {
         menu: trayIcon.modelData.menu // qmllint disable unresolved-type
         anchor.item: trayIcon
         anchor.edges: Edges.Bottom // qmllint disable missing-type
+    }
+
+    MultiEffect {
+        source: trayIcon
+        anchors.fill: trayIcon
+        saturation: -1
     }
 }
