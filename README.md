@@ -18,6 +18,7 @@ The goal of this project is to just provide a really minimal bar for [Hyprland](
 - Quickshell
 - Nerd Font Icons (you can also use others)
 - playerctl
+- Matugen (optional)
 
 ## (really) Quick start
 1. Clone the repo 
@@ -27,6 +28,20 @@ The goal of this project is to just provide a really minimal bar for [Hyprland](
 2. Rename the folder or just use a symlink
 
 `ln -s location/of/bmbar/ $XDG_CONFIG_HOME/quickshell`
+
+3. (If you don't want to use Matugen for setting your primary color)
+
+`cp $XDG_CONFIG_HOME/quickshell/theme/Theme.template $XDG_CONFIG_HOME/quickshell/theme/Theme.qml`
+
+```qml
+pragma Singleton
+import Quickshell
+
+Singleton {
+    // replace with the color of your choice 
+    property string primary: "{{ colors.on_surface.default.hex }}" // e.g "white"
+}
+```
 
 ## Features
 
@@ -43,6 +58,7 @@ The goal of this project is to just provide a really minimal bar for [Hyprland](
 - basic config file
 - workspace overview
 - maybe support other compositors (e.g. niri)
+- easier setup without Matugen
 
 ## Contributing
 - Prefer small, focused PRs.

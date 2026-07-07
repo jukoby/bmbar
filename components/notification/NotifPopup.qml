@@ -3,6 +3,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Controls
 import qs.base
+import qs.theme
 import qs.components.notification.data
 
 PanelPopup {
@@ -50,11 +51,12 @@ PanelPopup {
                 text: "Do not Disturb"
                 checked: NotifData.dnd
                 onClicked: NotifData.dnd = checked
+                // TODO: Color
             }
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
-                color: "white"
+                color: Theme.primary
                 text: NotifData.trackedAmount === 0 
                     ? " No Notifications" 
                     : " Clear Notifications"

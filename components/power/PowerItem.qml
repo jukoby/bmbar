@@ -1,11 +1,12 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import qs.theme
 
 Text {
     id: root
     scale: 1.5
-    color: "white"
+    color: Theme.primary
     horizontalAlignment: Qt.AlignHCenter
     Layout.alignment: Qt.AlignHCenter
 

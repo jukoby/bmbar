@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Layouts
+import qs.theme
 import qs.components.media.data
 
 RowLayout {
@@ -7,14 +8,14 @@ RowLayout {
 
     Text {
         text: MediaData.isPlaying ? "" : ""
-        color: "white"
+        color: Theme.primary
         visible: MediaData.playerExists
     }
 
     Text {
         Layout.maximumWidth: 300
         text: MediaData.info
-        color: "white"
+        color: Theme.primary
         visible: MediaData.playerExists
         elide: Text.ElideRight
         // TODO: fade Behavior

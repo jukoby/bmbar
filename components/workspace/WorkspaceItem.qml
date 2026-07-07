@@ -1,12 +1,13 @@
 import QtQuick
 import Quickshell.Hyprland
+import qs.theme
 
 Text {
     id: workspace
     required property HyprlandWorkspace modelData
 
     text: modelData.active ? "" : ""
-    color: "white"
+    color: Theme.primary
     horizontalAlignment: Text.AlignHCenter
     verticalAlignment: Text.AlignVCenter
 

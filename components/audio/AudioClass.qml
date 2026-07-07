@@ -3,6 +3,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Services.Pipewire
+import qs.theme
 import qs.components.audio.data
 
 ColumnLayout {
@@ -15,7 +16,7 @@ ColumnLayout {
     spacing: 2
 
     Text {
-        color: "white"
+        color: Theme.primary
         text: deviceContainer.title
         font.bold: true
         visible: deviceContainer.nodes.length != 0
@@ -48,7 +49,7 @@ ColumnLayout {
             Text {
                 Layout.preferredWidth: 155
                 Layout.leftMargin: deviceContainer.audioType !== AudioType.Stream ? 0 : 20
-                color: "white"
+                color: Theme.primary
                 elide: Text.ElideRight
                 text: device.modelData.description.length == 0 
                     ? device.modelData.name 
@@ -70,7 +71,7 @@ ColumnLayout {
             }
 
             Text {
-                color: "white"
+                color: Theme.primary
                 text: (device.modelData.audio.volume * 100).toFixed(0) + " %"
             }
         }

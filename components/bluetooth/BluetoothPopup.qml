@@ -2,7 +2,8 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
-import Quickshell.Bluetooth 
+import Quickshell.Bluetooth
+import qs.theme
 import qs.base
 
 PanelPopup {
@@ -44,7 +45,7 @@ PanelPopup {
             RowLayout {
                 Text {
                     text: "Search "
-                    color: "white"
+                    color: Theme.primary
 
                     TapHandler {
                         acceptedButtons: Qt.LeftButton

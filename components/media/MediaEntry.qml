@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Widgets
 import Quickshell.Services.Mpris
+import qs.theme
 
 RowLayout {
     id: root
@@ -59,7 +60,7 @@ RowLayout {
         Text {
             Layout.fillWidth: true
             text: root.player?.trackTitle ?? ""
-            color: "white"
+            color: Theme.primary
             elide: Text.ElideRight
             font.bold: true
         }
@@ -67,14 +68,14 @@ RowLayout {
         Text {
             Layout.fillWidth: true
             text: root.player?.trackArtist ?? ""
-            color: "white"
+            color: Theme.primary
             elide: Text.ElideRight
         }
 
         Text {
             Layout.fillWidth: true
             text: root.player?.trackAlbum ? root.player?.trackAlbum : root.player?.desktopEntry ?? ""
-            color: "white"
+            color: Theme.primary
             elide: Text.ElideRight
         }
 
@@ -99,14 +100,14 @@ RowLayout {
 
             Text {
                 text: {new Date(root.player?.position ?? 0 * 1000).toISOString().slice(14, 19)}
-                color: "white"
+                color: Theme.primary
             }
 
             RowLayout {
                 Layout.alignment: Qt.AlignHCenter
                 Text {
                     text: ""
-                    color: "white"
+                    color: Theme.primary
                     font.pointSize: 15
 
                     TapHandler {
@@ -119,7 +120,7 @@ RowLayout {
                     Layout.preferredWidth: 25
                     horizontalAlignment: Text.AlignHCenter
                     text: root.player?.isPlaying ? "" : ""
-                    color: "white"
+                    color: Theme.primary
                     font.pointSize: 15
 
                     TapHandler {
@@ -130,7 +131,7 @@ RowLayout {
 
                 Text {
                     text: ""
-                    color: "white"
+                    color: Theme.primary
                     font.pointSize: 15
 
                     TapHandler {
@@ -143,7 +144,7 @@ RowLayout {
             Text {
                 Layout.alignment: Qt.AlignRight
                 text: {new Date(root.player?.length ?? 0 * 1000).toISOString().slice(14, 19)}
-                color: "white"
+                color: Theme.primary
             }
         }
     }

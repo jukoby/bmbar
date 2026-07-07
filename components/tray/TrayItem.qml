@@ -3,6 +3,7 @@ import QtQuick.Effects
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
+import qs.theme
 
 IconImage {
     id: trayIcon
@@ -36,6 +37,7 @@ IconImage {
     MultiEffect {
         source: trayIcon
         anchors.fill: trayIcon
-        saturation: -1
+        colorizationColor: Theme.primary
+        colorization: 1.0
     }
 }

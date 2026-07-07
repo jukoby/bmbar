@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Bluetooth
+import qs.theme
 import qs.base
 
 RowLayout {
@@ -13,18 +14,27 @@ RowLayout {
     required property int index
     required property int count
 
-    Text {
-        text: device.modelData.connected ? "󰌺" : "󰌹"
-        color: "white"
-        font.bold: device.modelData.connected
-    }
+    RowLayout {
+        Text {
+            text: device.modelData.connected ? "󰌺" : "󰌹"
+            color: Theme.primary
+            font.bold: device.modelData.connected
+        }
 
-    Text {
-        text: device.modelData.deviceName ? 
-            device.modelData.deviceName :
-            device.modelData.address
-        color: "white"
-        font.bold: device.modelData.connected
+        Text {
+            text: device.modelData.deviceName ? 
+                device.modelData.deviceName :
+                device.modelData.address
+            color: Theme.primary
+            font.bold: device.modelData.connected
+        }
+
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            onTapped: device.modelData.connected ? 
+                device.modelData.disconnect() :
+                device.modelData.connect()
+        }
     }
 
     VerticalLine { visible: device.modelData.batteryAvailable }
@@ -36,23 +46,28 @@ RowLayout {
         value: device.modelData.battery
         bold: device.modelData.connected
         visible: device.modelData.batteryAvailable
-        spacing: -5
+
+        Layout.leftMargin: -3
     }
     
-    VerticalLine { visible: device.modelData.bonded || device.modelData.trusted }
+    VerticalLine { visible: device.modelData.bonded || device.modelData.trusted || device.modelData.connected }
 
     Text {
         text: ""
-        color: "white"
+        color: Theme.primary
         font.bold: device.modelData.connected
         visible: device.modelData.bonded
     }
 
     Text {
-        text: ""
-        color: "white"
+        text: device.modelData.trusted ? "" : ""
+        color: Theme.primary
         font.bold: device.modelData.connected
-        visible: device.modelData.trusted
+
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            onTapped: device.modelData.trusted = !device.modelData.trusted 
+        }
     }
 
     BusyIndicator {
@@ -65,7 +80,7 @@ RowLayout {
 
     Text {
         text: "󰅖"
-        color: "white"
+        color: Theme.primary
         font.bold: device.modelData.connected
         visible: device.modelData.bonded
         horizontalAlignment: Qt.AlignRight
@@ -82,12 +97,5 @@ RowLayout {
         to: 1
         duration: 150
         running: device.index == device.count - 1
-    }
-
-    TapHandler {
-        acceptedButtons: Qt.LeftButton
-        onTapped: device.modelData.connected ? 
-            device.modelData.disconnect() :
-            device.modelData.connect()
     }
 }

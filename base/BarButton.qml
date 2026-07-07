@@ -1,11 +1,12 @@
 import QtQuick
 import QtQuick.Layouts
+import qs.theme
 
 Text {
     id: barButton
     horizontalAlignment: Text.AlignHCenter
     verticalAlignment: Text.AlignVCenter
-    color: "white"
+    color: Theme.primary
     property bool fixedSize: true
 
     signal leftClicked()
