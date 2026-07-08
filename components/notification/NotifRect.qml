@@ -5,16 +5,16 @@ import qs.theme
 
 Rectangle {
     id: container
-    required property Notification modelData
     anchors.horizontalCenter: parent?.horizontalCenter
-
-    color: "#222"
+    color: Theme.bgAlt
     radius: 10
+
+    required property Notification modelData
 
     TapHandler {
         acceptedButtons: Qt.LeftButton
         onTapped: {
-            const primaryAction = container.modelData.actions[0]  // qmllint disable unresolved-type
+            const primaryAction = container.modelData.actions[0] // qmllint disable unresolved-type
             if (primaryAction) {
                 primaryAction.invoke()
             }
@@ -33,11 +33,12 @@ Rectangle {
 
         Text {
             id: summary
-            Layout.fillWidth: true
-            Layout.maximumWidth: container.width - 20
             color: Theme.primary
             font.bold: true
             elide: Text.ElideRight
+
+            Layout.fillWidth: true
+            Layout.maximumWidth: container.width - 20
         }
 
         Text {
@@ -54,13 +55,14 @@ Rectangle {
 
         Text {
             id: body
-            Layout.columnSpan: 2
-            Layout.maximumWidth: container.width - 20
             color: Theme.primary
             font.pointSize: 10
             wrapMode: Text.WordWrap
             elide: Text.ElideRight
             maximumLineCount: 3
+            
+            Layout.columnSpan: 2
+            Layout.maximumWidth: container.width - 20
         }
 
         Component.onCompleted: {
@@ -70,6 +72,7 @@ Rectangle {
     }
 
     function dismiss() { dismissAction.start() }
+    
     Timer {
         id: dismissAction
         interval: scaleAnim.duration

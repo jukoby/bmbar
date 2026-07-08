@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Shapes
+import qs.theme
 
 Shape {
     id: shape
@@ -10,7 +11,7 @@ Shape {
     ShapePath {
         id: shapePath
         strokeWidth: 0
-        fillColor: '#111'
+        fillColor: Theme.bg
         
         PathAngleArc {
             moveToStart: false

@@ -3,4 +3,6 @@ import Quickshell
 
 Singleton {
     property string primary: "{{ colors.on_surface.default.hex }}"
+    property string bg: "{{ colors.surface.default.hex }}"
+    property string bgAlt: "{{ colors.surface_variant.default.hex }}"
 }

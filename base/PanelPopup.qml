@@ -1,8 +1,9 @@
 pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
-import qs.data
 import qs.base
+import qs.data
+import qs.theme
 
 Loader {
     id: loader
@@ -65,7 +66,7 @@ Loader {
             Rectangle {
                 id: backgroundRect
                 children: [loader.contentItem]
-                color: "#111"
+                color: Theme.bg
                 bottomLeftRadius: loader.side !== Side.LEFT ? loader.borderRadius : 0
                 bottomRightRadius: loader.side !== Side.RIGHT ? loader.borderRadius : 0
                 implicitWidth: loader.contentItem.width + (loader.side === Side.CENTER ? 0 : panel.animationPadding)

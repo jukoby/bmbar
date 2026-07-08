@@ -3,6 +3,7 @@ import QtQuick
 import QtQuick.Layouts
 import qs.bar
 import qs.base
+import qs.theme
 
 Scope {
     id: root
@@ -33,7 +34,7 @@ Scope {
 
             Rectangle {
                 id: bar
-                color: '#111'
+                color: Theme.bg
                 width: barWindow.width
                 height: barWindow.exclusiveZone
                 
