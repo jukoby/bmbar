@@ -7,7 +7,6 @@ Text {
     id: root
     scale: 1.5
     color: Theme.primary
-    horizontalAlignment: Qt.AlignHCenter
     Layout.alignment: Qt.AlignHCenter
 
     required property list<string> command

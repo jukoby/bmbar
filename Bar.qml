@@ -5,64 +5,61 @@ import qs.bar
 import qs.base
 import qs.theme
 
-Scope {
-    id: root
-    
-    Variants {
-        model: Quickshell.screens
+Variants {
+    model: Quickshell.screens
 
-        PanelWindow {  // qmllint disable uncreatable-type
-            id: barWindow
-            required property ShellScreen modelData
-            screen: modelData
-            implicitHeight: 50
-            exclusiveZone: 30
-            mask: Region { item: bar }
-            color: 'transparent'
+    PanelWindow {  // qmllint disable uncreatable-type
+        id: barWindow
+        required property ShellScreen modelData
+        screen: modelData
+        implicitHeight: 50
+        exclusiveZone: 30
+        mask: Region { item: bar }
+        color: 'transparent'
 
-            anchors {
-                top: true
-                left: true
-                right: true
-            }
+        anchors {
+            top: true
+            left: true
+            right: true
+        }
 
-            Corner {
-                y: barWindow.exclusiveZone
-                size: 20
-                direction: Direction.SE
-            }
+        Corner {
+            y: barWindow.exclusiveZone
+            size: 20
+            direction: Direction.SE
+        }
 
-            Rectangle {
-                id: bar
-                color: Theme.bg
-                width: barWindow.width
-                height: barWindow.exclusiveZone
-                
-                RowLayout {
-                    anchors.fill: parent
-                    spacing: 10
-                    uniformCellSizes: true
+        Rectangle {
+            id: bar
+            color: Theme.bg
+            width: barWindow.width
+            height: barWindow.exclusiveZone
+            
+            RowLayout {
+                anchors.fill: parent
+                spacing: 10
+                uniformCellSizes: true
 
-                    Left { 
-                        Layout.alignment: Qt.AlignLeft
-                        Layout.leftMargin: 10
-                    }
+                Left { 
+                    Layout.alignment: Qt.AlignLeft
+                    Layout.leftMargin: 10
+                }
 
-                    Center { Layout.alignment: Qt.AlignCenter }
+                Center { Layout.alignment: Qt.AlignCenter }
 
-                    Right {
-                        Layout.alignment: Qt.AlignRight
-                        Layout.rightMargin: 10
-                    }
+                Right {
+                    Layout.alignment: Qt.AlignRight
+                    Layout.rightMargin: 10
                 }
             }
+        }
 
-            Corner {
-                x: Screen.width - size
-                y: barWindow.exclusiveZone
-                size: 20
-                direction: Direction.SW
-            }
+        Corner {
+            x: Screen.width - size
+            y: barWindow.exclusiveZone
+            size: 20
+            direction: Direction.SW
         }
     }
 }
+

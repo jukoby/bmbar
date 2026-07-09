@@ -18,7 +18,7 @@ Singleton {
         running: true
         command: ["hyprctl", "hyprsunset", "temperature"]
         stdout: StdioCollector {
-            onStreamFinished: data.enabled = parseInt(this.text) < 4500
+            onStreamFinished: data.enabled = parseInt(text) < 4500
         }
     }
 
