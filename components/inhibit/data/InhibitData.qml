@@ -11,9 +11,10 @@ Singleton {
         running: false
         command: [
             "systemd-inhibit", 
+            "--what=idle",
             "--who=quickshell",
             "--why=Inhibiting idle state",
-            "sleep", 
+            "sleep",
             "infinity"
         ]
     }
