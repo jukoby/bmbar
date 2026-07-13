@@ -6,7 +6,7 @@ Text {
     id: workspace
     required property HyprlandWorkspace modelData
 
-    text: modelData.active ? "" : ""
+    text: getIcon()
     color: Theme.primary
     horizontalAlignment: Text.AlignHCenter
     verticalAlignment: Text.AlignVCenter
@@ -14,5 +14,16 @@ Text {
     TapHandler {
         acceptedButtons: Qt.LeftButton
         onTapped: workspace.modelData.activate()
+    }
+
+    function getIcon() {
+        const isNamed = isNaN(modelData.name)
+        if (modelData.active) {
+            if (isNamed) return "󰓏"
+            else return ""
+        } else {
+            if (isNamed) return "󰦤"
+            else return ""
+        }
     }
 }
