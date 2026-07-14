@@ -72,6 +72,11 @@ Loader {
                 implicitWidth: loader.contentItem.width + (loader.side === Side.CENTER ? 0 : panel.animationPadding)
                 implicitHeight: loader.contentItem.height + 10
 
+                TapHandler {
+                    acceptedButtons: Qt.LeftButton
+                    gesturePolicy: TapHandler.WithinBounds
+                }
+
                 Behavior on implicitHeight { 
                     NumberAnimation {
                         duration: 150
@@ -91,7 +96,6 @@ Loader {
                 visible: loader.side !== Side.RIGHT
                 direction: Direction.SE
             }
-
             
             transform: loader.side === Side.CENTER ? translateV : translateH
             
@@ -132,14 +136,10 @@ Loader {
             }
         }
 
-        // Bar closes when a click is registered outside of it
+        // Popup closes when a click is registered outside of it
         TapHandler {
             acceptedButtons: Qt.LeftButton
-            onTapped: (event) => panel.close = !backgroundRect.contains(
-                backgroundRect.mapFromGlobal(
-                    event.position.x, event.position.y + panel.topMargin
-                )
-            )
+            onTapped: panel.close = true
         }
     }
 }
