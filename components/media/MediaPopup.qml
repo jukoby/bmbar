@@ -28,9 +28,6 @@ PanelPopup {
                 spacing: popup.expanded ? 15 : 0
                 Layout.topMargin: spacing
 
-                // fix height not changing when activePlayer changes
-                Layout.preferredHeight: popup.expanded ? childrenRect.height : 0
-
                 required property MprisPlayer modelData
 
                 HorizontalLine {
@@ -46,7 +43,8 @@ PanelPopup {
 
         ThemedText {
             Layout.alignment: Qt.AlignHCenter
-            Layout.bottomMargin: -15
+            Layout.bottomMargin: -10
+            
             text: popup.expanded ? "" : ""
             visible: MediaData.otherPlayers.length != 0
             font.pointSize: 22

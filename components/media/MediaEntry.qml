@@ -10,6 +10,7 @@ import qs.theme
 RowLayout {
     id: root
     Layout.fillWidth: true
+    Layout.preferredHeight: visible ? implicitHeight : 0
 
     required property MprisPlayer player
     property int imageSize: 100
