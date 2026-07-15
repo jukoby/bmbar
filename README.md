@@ -52,6 +52,8 @@ Singleton {
 - toggle buttons: hyprsunset (night light), sleep inhibitor
 - color picker
 - notification daeman showing incoming notifications
+- updater for arch and pacman
+- runs commands in installed terminal emulator automatically
 
 ## TODO
 - fix small animation issues
@@ -59,7 +61,11 @@ Singleton {
 - workspace overview
 - maybe support other compositors (e.g. niri)
 - easier setup without Matugen
+- updater for other distros (fedora, debian)
 
 ## Contributing
 - Prefer small, focused PRs.
 - Follow existing coding style in QML files.
+
+## Supported Terminal Emulators for auto detection
+- alacritty, konsole, xterm, ghostty, gnome-terminal, kitty, foot
