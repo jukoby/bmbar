@@ -16,26 +16,20 @@ RowLayout {
         objects: [device.modelData]
     }
 
-    Label {
+    ThemedLabel {
         id: label
-        readonly property bool isSelected: AudioData.isDefault(
+        applyBackground: AudioData.isDefault(
             device.audioType, device.modelData
         ) && device.audioType !== AudioType.Stream
-
-        Layout.preferredWidth: 175
-        color: Theme.primary
         elide: Text.ElideRight
         text: device.modelData.description.length == 0 
             ? device.modelData.name 
             : device.modelData.description
-        font.bold: isSelected
         horizontalAlignment: Text.AlignHCenter 
         leftPadding: 5
         rightPadding: leftPadding
-        background: Rectangle {
-            color: label.isSelected ? Theme.bgAlt : "transparent"
-            radius: 7
-        }
+
+        Layout.preferredWidth: 175
         
         TapHandler {
             acceptedButtons: Qt.LeftButton

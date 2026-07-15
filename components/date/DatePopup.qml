@@ -122,24 +122,17 @@ PanelPopup {
                     id: grid
                     month: Time.month
                     year: Time.year
-                    delegate: Label {
+                    delegate: ThemedLabel {
                         id: label
                         required property var model
-
+                        
+                        applyBackground: model.today
                         text: model.day
-                        font.bold: model.today
-                        color: Theme.primary
                         opacity: model.month == grid.month ? 1 : 0.25
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                         leftPadding: 3
-                        rightPadding: 3
-
-                        background: Rectangle {
-                            color: label.model.today ? Theme.primary : "transparent"
-                            opacity: 0.2
-                            radius: 5
-                        }
+                        rightPadding: leftPadding
                     }
 
                     Layout.column: 2
