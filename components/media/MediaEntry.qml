@@ -5,6 +5,7 @@ import QtQuick.Controls
 import Quickshell.Widgets
 import Quickshell.Services.Mpris
 import qs.base
+import qs.theme
 
 RowLayout {
     id: root
@@ -77,12 +78,16 @@ RowLayout {
         }
 
         ProgressBar {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 5
-            Layout.topMargin: 5
             from: 0
             to: root.player?.length ?? 0
             value: root.player?.position ?? 0
+            palette.base: Theme.bgAlt
+            palette.highlight: Theme.primary
+            
+            Layout.fillWidth: true
+            Layout.preferredHeight: 5
+            Layout.topMargin: 5
+            Layout.bottomMargin: Layout.topMargin
         }
 
         Timer {
