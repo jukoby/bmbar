@@ -3,7 +3,6 @@ import Quickshell
 import QtQuick
 import QtQuick.Controls
 import qs.base
-import qs.theme
 import qs.components.notification.data
 
 PanelPopup {
@@ -54,9 +53,8 @@ PanelPopup {
                 // TODO: Color
             }
 
-            Text {
+            ThemedText {
                 anchors.horizontalCenter: parent.horizontalCenter
-                color: Theme.primary
                 text: NotifData.trackedAmount === 0 
                     ? " No Notifications" 
                     : " Clear Notifications"

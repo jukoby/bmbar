@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Services.Notifications
+import qs.base
 import qs.theme
 
 Rectangle {
@@ -31,9 +32,8 @@ Rectangle {
         anchors.leftMargin: 5
         rowSpacing: 0
 
-        Text {
+        ThemedText {
             id: summary
-            color: Theme.primary
             font.bold: true
             elide: Text.ElideRight
 
@@ -41,9 +41,8 @@ Rectangle {
             Layout.maximumWidth: container.width - 20
         }
 
-        Text {
+        ThemedText {
             text: ""
-            color: Theme.primary
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
 
@@ -53,9 +52,8 @@ Rectangle {
             }
         }
 
-        Text {
+        ThemedText {
             id: body
-            color: Theme.primary
             font.pointSize: 10
             wrapMode: Text.WordWrap
             elide: Text.ElideRight

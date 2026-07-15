@@ -19,9 +19,8 @@ PanelPopup {
         ColumnLayout {
 
             RowLayout {
-                Text {
+                ThemedText {
                     text: ""
-                    color: Theme.primary
 
                     Layout.fillWidth: true
 
@@ -39,18 +38,16 @@ PanelPopup {
                     }
                 }
 
-                Text {
+                ThemedText {
                     text: Qt.locale().monthName(grid.month)
-                    color: Theme.primary
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
 
                     Layout.alignment: Qt.AlignHCenter
                 }
 
-                Text {
+                ThemedText {
                     text: ""
-                    color: Theme.primary
                     horizontalAlignment: Text.AlignRight
 
                     Layout.fillWidth: true
@@ -72,9 +69,8 @@ PanelPopup {
             }
 
             GridLayout {
-                Text {
+                ThemedText {
                     text: grid.year
-                    color: Theme.primary
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
 
@@ -91,9 +87,8 @@ PanelPopup {
                     id: dayOfWeek
                     locale: grid.locale
 
-                    delegate: Text {
+                    delegate: ThemedText {
                         text: shortName
-                        color: Theme.primary
                         font.bold: true
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
@@ -102,6 +97,7 @@ PanelPopup {
                     }
 
                     Layout.alignment: Qt.AlignRight
+                    Layout.fillWidth: true
                 }
             
                 WeekNumberColumn {
@@ -109,9 +105,8 @@ PanelPopup {
                     month: grid.month
                     year: grid.year
                     locale: grid.locale
-                    delegate: Text {
+                    delegate: ThemedText {
                         text: weekNumber
-                        color: Theme.primary
                         font.italic: true
                         horizontalAlignment: Text.AlignRight
 
@@ -137,6 +132,8 @@ PanelPopup {
                         opacity: model.month == grid.month ? 1 : 0.25
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
+                        leftPadding: 3
+                        rightPadding: 3
 
                         background: Rectangle {
                             color: label.model.today ? Theme.primary : "transparent"

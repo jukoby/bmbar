@@ -1,21 +1,19 @@
 import QtQuick
 import QtQuick.Layouts
-import qs.theme
+import qs.base
 import qs.components.media.data
 
 RowLayout {
     spacing: 5
 
-    Text {
+    ThemedText {
         text: MediaData.isPlaying ? "" : ""
-        color: Theme.primary
         visible: MediaData.playerExists
     }
 
-    Text {
+    ThemedText {
         Layout.maximumWidth: 300
         text: MediaData.info
-        color: Theme.primary
         visible: MediaData.playerExists
         elide: Text.ElideRight
         // TODO: fade Behavior

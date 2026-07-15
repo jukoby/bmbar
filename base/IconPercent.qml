@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Layouts
-import qs.theme
 
 RowLayout {
     id: root
@@ -13,9 +12,8 @@ RowLayout {
     property int iconWidth: 16
     property int textWidth: 32
 
-    Text {
+    ThemedText {
         text: root.alternative ? root.alternative : getIcon()
-        color: Theme.primary
         font.bold: root.bold
         horizontalAlignment: Qt.AlignLeft
         Layout.preferredWidth: root.iconWidth
@@ -29,9 +27,8 @@ RowLayout {
         }
     }
     
-    Text {
+    ThemedText {
         text: `${(root.value * root.multiplier).toFixed(0)}%`
-        color: Theme.primary
         font.bold: root.bold
         font.pointSize: root.value == 1 ? 10: 11
         horizontalAlignment: Qt.AlignRight

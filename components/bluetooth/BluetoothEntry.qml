@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Bluetooth
-import qs.theme
 import qs.base
 
 RowLayout {
@@ -15,17 +14,15 @@ RowLayout {
     required property int count
 
     RowLayout {
-        Text {
+        ThemedText {
             text: device.modelData.connected ? "󰌺" : "󰌹"
-            color: Theme.primary
             font.bold: device.modelData.connected
         }
 
-        Text {
+        ThemedText {
             text: device.modelData.deviceName ? 
                 device.modelData.deviceName :
                 device.modelData.address
-            color: Theme.primary
             font.bold: device.modelData.connected
         }
 
@@ -52,16 +49,14 @@ RowLayout {
     
     VerticalLine { visible: device.modelData.bonded || device.modelData.trusted || device.modelData.connected }
 
-    Text {
+    ThemedText {
         text: ""
-        color: Theme.primary
         font.bold: device.modelData.connected
         visible: device.modelData.bonded
     }
 
-    Text {
+    ThemedText {
         text: device.modelData.trusted ? "" : ""
-        color: Theme.primary
         font.bold: device.modelData.connected
 
         TapHandler {
@@ -78,9 +73,8 @@ RowLayout {
             BluetoothDeviceState.Connecting || BluetoothDeviceState.Disconnected
     }
 
-    Text {
+    ThemedText {
         text: "󰅖"
-        color: Theme.primary
         font.bold: device.modelData.connected
         visible: device.modelData.bonded
         horizontalAlignment: Qt.AlignRight

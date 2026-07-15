@@ -4,7 +4,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Widgets
 import Quickshell.Services.Mpris
-import qs.theme
+import qs.base
 
 RowLayout {
     id: root
@@ -57,25 +57,22 @@ RowLayout {
         Layout.leftMargin: 10
         Layout.rightMargin: Layout.leftMargin
 
-        Text {
+        ThemedText {
             Layout.fillWidth: true
             text: root.player?.trackTitle ?? ""
-            color: Theme.primary
             elide: Text.ElideRight
             font.bold: true
         }
 
-        Text {
+        ThemedText {
             Layout.fillWidth: true
             text: root.player?.trackArtist ?? ""
-            color: Theme.primary
             elide: Text.ElideRight
         }
 
-        Text {
+        ThemedText {
             Layout.fillWidth: true
             text: root.player?.trackAlbum ? root.player?.trackAlbum : root.player?.desktopEntry ?? ""
-            color: Theme.primary
             elide: Text.ElideRight
         }
 
@@ -98,16 +95,14 @@ RowLayout {
         RowLayout {
             Layout.preferredWidth: info.width
 
-            Text {
-                text: {new Date(root.player?.position ?? 0 * 1000).toISOString().slice(14, 19)}
-                color: Theme.primary
+            ThemedText {
+                text: new Date(root.player?.position ?? 0 * 1000).toISOString().slice(14, 19)
             }
 
             RowLayout {
                 Layout.alignment: Qt.AlignHCenter
-                Text {
+                ThemedText {
                     text: ""
-                    color: Theme.primary
                     font.pointSize: 15
 
                     TapHandler {
@@ -116,11 +111,10 @@ RowLayout {
                     }
                 }
 
-                Text {
+                ThemedText {
                     Layout.preferredWidth: 25
                     horizontalAlignment: Text.AlignHCenter
                     text: root.player?.isPlaying ? "" : ""
-                    color: Theme.primary
                     font.pointSize: 15
 
                     TapHandler {
@@ -129,9 +123,8 @@ RowLayout {
                     }
                 }
 
-                Text {
+                ThemedText {
                     text: ""
-                    color: Theme.primary
                     font.pointSize: 15
 
                     TapHandler {
@@ -141,10 +134,9 @@ RowLayout {
                 }
             }
 
-            Text {
+            ThemedText {
                 Layout.alignment: Qt.AlignRight
-                text: {new Date(root.player?.length ?? 0 * 1000).toISOString().slice(14, 19)}
-                color: Theme.primary
+                text: new Date(root.player?.length ?? 0 * 1000).toISOString().slice(14, 19)
             }
         }
     }

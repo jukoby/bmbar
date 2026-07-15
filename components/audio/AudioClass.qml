@@ -2,7 +2,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Services.Pipewire
-import qs.theme
+import qs.base
 
 ColumnLayout {
     id: deviceContainer
@@ -13,8 +13,7 @@ ColumnLayout {
 
     spacing: 2
 
-    Text {
-        color: Theme.primary
+    ThemedText {
         text: deviceContainer.title
         font.bold: true
         visible: deviceContainer.nodes.length != 0

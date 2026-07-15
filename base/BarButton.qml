@@ -1,13 +1,11 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import qs.theme
 
-Text {
+ThemedText {
     id: barButton
     horizontalAlignment: Text.AlignHCenter
     verticalAlignment: Text.AlignVCenter
-    color: Theme.primary
     property bool fixedSize: true
     property string tooltip
 

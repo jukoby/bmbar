@@ -12,7 +12,7 @@ PanelPopup {
         implicitWidth: 45
         
         ColumnLayout {
-            spacing: 10
+            spacing: 8
 
             PowerItem {
                 text: ""
@@ -27,7 +27,7 @@ PanelPopup {
             PowerItem {
                 text: "󰤄"
                 command: ["systemctl", "sleep"]
-                scale: 1.7
+                scale: 1.15
             }
 
             PowerItem {

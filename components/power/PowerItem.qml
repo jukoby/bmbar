@@ -1,12 +1,11 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import qs.theme
+import qs.base
 
-Text {
+ThemedText {
     id: root
-    scale: 1.5
-    color: Theme.primary
+    font.pointSize: 18
     Layout.alignment: Qt.AlignHCenter
 
     required property list<string> command

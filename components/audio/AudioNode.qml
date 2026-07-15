@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Services.Pipewire
+import qs.base
 import qs.theme
 import qs.components.audio.data
 
@@ -53,8 +54,7 @@ RowLayout {
         to: device.max_volume
     }
 
-    Text {
-        color: Theme.primary
+    ThemedText {
         text: (device.modelData.audio.volume * 100).toFixed(0) + " %"
     }
 }

@@ -3,7 +3,6 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Bluetooth
-import qs.theme
 import qs.base
 
 PanelPopup {
@@ -43,9 +42,8 @@ PanelPopup {
             HorizontalLine { }
 
             RowLayout {
-                Text {
+                ThemedText {
                     text: "Search "
-                    color: Theme.primary
 
                     TapHandler {
                         acceptedButtons: Qt.LeftButton

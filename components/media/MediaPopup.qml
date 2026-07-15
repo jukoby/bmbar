@@ -4,7 +4,6 @@ import QtQuick.Layouts
 import Quickshell.Services.Mpris
 import qs.base
 import qs.components.media.data
-import qs.theme
 
 PanelPopup {
     id: popup
@@ -45,12 +44,11 @@ PanelPopup {
             }
         }
 
-        Text {
+        ThemedText {
             Layout.alignment: Qt.AlignHCenter
             Layout.bottomMargin: -15
             text: popup.expanded ? "" : ""
             visible: MediaData.otherPlayers.length != 0
-            color: Theme.primary
             font.pointSize: 22
 
             TapHandler {
