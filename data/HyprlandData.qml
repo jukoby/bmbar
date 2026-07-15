@@ -13,7 +13,7 @@ Singleton {
 
     function hasFullscreenOnScreen(screen) {
         return Hyprland.toplevels.values.some(
-            toplevel => toplevel.monitor == Hyprland.monitorFor(screen) && toplevel.wayland.fullscreen
+            toplevel => toplevel.monitor == Hyprland.monitorFor(screen) && toplevel.wayland?.fullscreen
         )
     }
 }
