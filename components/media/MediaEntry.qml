@@ -96,7 +96,7 @@ RowLayout {
             Layout.preferredWidth: info.width
 
             ThemedText {
-                text: new Date(root.player?.position ?? 0 * 1000).toISOString().slice(14, 19)
+                text: new Date((root.player?.position ?? 0) * 1000).toISOString().slice(14, 19)
             }
 
             RowLayout {
@@ -136,7 +136,7 @@ RowLayout {
 
             ThemedText {
                 Layout.alignment: Qt.AlignRight
-                text: new Date(root.player?.length ?? 0 * 1000).toISOString().slice(14, 19)
+                text: new Date((root.player?.length ?? 0) * 1000).toISOString().slice(14, 19)
             }
         }
     }
