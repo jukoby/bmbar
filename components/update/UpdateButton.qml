@@ -5,7 +5,7 @@ import qs.components.update.data
 BarButton {
     id: root
     text: ""
-    tooltip: `󰌽${UpdateData.archUpdates}     ${UpdateData.flatpakUpdates}`
-    visible: UpdateData.archUpdates + UpdateData.flatpakUpdates >= 10
+    tooltip: `󰌽${UpdateData.linuxUpdates}     ${UpdateData.flatpakUpdates}`
+    visible: UpdateData.linuxUpdates + UpdateData.flatpakUpdates >= 10
     onLeftClicked: UpdateData.runUpdate()
 }
