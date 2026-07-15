@@ -43,8 +43,7 @@ RowLayout {
         value: device.modelData.battery
         bold: device.modelData.connected
         visible: device.modelData.batteryAvailable
-
-        Layout.leftMargin: -3
+        spacing: -2
     }
     
     VerticalLine { visible: device.modelData.bonded || device.modelData.trusted || device.modelData.connected }
