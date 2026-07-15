@@ -4,13 +4,13 @@ import Quickshell
 import Quickshell.Io
 
 Singleton {
-    id: data
+    id: nightLight
     property bool enabled: false
 
     function toggle() {
-        const temp = enabled ? "6500": "3500" // "reset" for new release
+        const command = enabled ? ["reset", "temperature"]: ["temperature", "3500"]
+        Quickshell.execDetached(["hyprctl", "hyprsunset", ...command])
         enabled = !enabled
-        Quickshell.execDetached(["hyprctl", "hyprsunset", "temperature", temp])
     }
 
     Process {
@@ -18,7 +18,7 @@ Singleton {
         running: true
         command: ["hyprctl", "hyprsunset", "temperature"]
         stdout: StdioCollector {
-            onStreamFinished: data.enabled = parseInt(text) < 4500
+            onStreamFinished: nightLight.enabled = parseInt(text) < 6000
         }
     }
 
