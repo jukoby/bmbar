@@ -17,8 +17,11 @@ Singleton {
     property int status: getStatus()
     
     function getStatus() {
-        if (!defaultAdapter?.enabled) {
-            return BluetoothData.Status.Disabled
+        switch (defaultAdapter.state) { // qmllint disable unresolved-type
+            case BluetoothAdapterState.Disabled:
+            case BluetoothAdapterState.Disabling:
+            case BluetoothAdapterState.Blocked:
+            return BluetoothData.Status.Disabled 
         }
 
         if (activeDevice) {
@@ -28,6 +31,7 @@ Singleton {
         if (defaultAdapter.discovering) {
             return BluetoothData.Status.Searching
         }
+
         return BluetoothData.Status.Enabled
     }
 }
