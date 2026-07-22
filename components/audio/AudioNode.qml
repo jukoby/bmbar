@@ -41,11 +41,14 @@ RowLayout {
 
     Slider {
         id: slider
-        Layout.preferredWidth: 200
         from: 0
         value: device.modelData.audio.volume
         onMoved: device.modelData.audio.volume = value
         to: device.max_volume
+
+        palette.base: Theme.bgAlt
+        palette.highlight: Theme.primary
+        Layout.preferredWidth: 200
     }
 
     ThemedText {
