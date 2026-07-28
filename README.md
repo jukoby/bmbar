@@ -29,18 +29,12 @@ The goal of this project is to just provide a really minimal bar for [Hyprland](
 
 `ln -s location/of/bmbar/ $XDG_CONFIG_HOME/quickshell`
 
-3. (If you don't want to use Matugen for setting your primary color)
+3. If you want to use Matugen for setting your theme colors add this to your Matugen config
 
-`cp $XDG_CONFIG_HOME/quickshell/theme/Theme.template $XDG_CONFIG_HOME/quickshell/theme/Theme.qml`
-
-```qml
-pragma Singleton
-import Quickshell
-
-Singleton {
-    // replace with the color of your choice 
-    property string primary: "{{ colors.on_surface.default.hex }}" // e.g "white"
-}
+```toml
+[templates.quickshell]
+input_path = "~/.config/quickshell/theme/colors.json.template"
+output_path = "~/.config/quickshell/theme/colors.json"
 ```
 
 ## Features
@@ -60,7 +54,6 @@ Singleton {
 - basic config file
 - workspace overview
 - maybe support other compositors (e.g. niri)
-- easier setup without Matugen
 - updater for other distros (fedora, debian)
 
 ## Contributing

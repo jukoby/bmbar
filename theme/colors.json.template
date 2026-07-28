@@ -1,0 +1,6 @@
+{
+    "primary": "{{ colors.on_surface.default.hex }}",
+    "highlight": "{{ colors.primary.default.hex }}",
+    "bg": "{{ colors.surface.default.hex }}",
+    "bgAlt": "{{ colors.surface_variant.default.hex }}"
+}
